@@ -1,7 +1,6 @@
 # ChatBidireccional
 **Proyecto educativo:** desarrollo de un chat bidireccional utilizando Java y sockets.
 
-## Información del proyecto
 - **Paquete:** `com.bidichat.project`
 - **Ubicación de los archivos:** `src/com/bidichat/project/`
 
@@ -80,4 +79,4 @@ Si un usuario se desconecta sin escribir `chao`, por ejemplo, porque cierra la c
 - El usuario restante regresa automáticamente al lobby.
 
 ---
-Tecnologías utilizadas: Java, sockets TCP y programación multihilo (*Multithreading*).
+Tecnologías utilizadas: Java, sockets TCP y programación multihilo (Multithreading).

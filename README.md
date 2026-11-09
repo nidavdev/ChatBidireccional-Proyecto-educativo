@@ -1,35 +1,83 @@
-# ChatBidireccional, Proyecto educativo
-Un proyecto educativo sobre crear un chat bidireccional.
+# ChatBidireccional
+**Proyecto educativo:** desarrollo de un chat bidireccional utilizando Java y sockets.
 
-Paquete: com.bidichat.project
-Ubicacion de los archivos: src/com/bidichat/project/
+## Información del proyecto
+- **Paquete:** `com.bidichat.project`
+- **Ubicación de los archivos:** `src/com/bidichat/project/`
 
-Archivos:
-  - ChatServer.java -> programa servidor
-  - ClientHandler.java -> hilo que atiende a cada cliente conectado
-  - ChatClient.java -> programa cliente
+`ChatServer.java` Programa servidor que administra las conexiones.
+`ClientHandler.java` Hilo encargado de atender a cada cliente conectado.
+`ChatClient.java` Programa cliente que permite interactuar con el chat.
 
-## COMO EJECUTAR (desde consola):
-1) Compilar desde src/ javac -d out com/bidichat/project/*.java
+---
 
-2) Iniciar el servidor (queda esperando conexiones en el puerto 8000). En la carpeta src/, ejecutar el comando:
-	java -cp out com.bidichat.project.ChatServer
+## Cómo ejecutar el proyecto
+Todos los comandos deben ejecutarse desde la carpeta `src/`.
 
-3) Iniciar un cliente. Al iniciar pide la IP del servidor (vacio = localhost), el puerto (vacio = 8000) y después el nombre de usuario. En la carpeta src/, ejecutar el comando:
-	java -cp out com.bidichat.project.ChatClient
+### 1. Compilar el proyecto
+```bash
+javac -d out com/bidichat/project/*.java
+```
 
-4) Repetir el paso 3 en otras consolas para simular varios usuarios
- 	(user01, user02, user03, ...).
+Este comando compila los archivos Java y genera los archivos `.class` dentro de la carpeta `out/`.
 
-## FLUJO DE USO:
-Cada cliente que se conecta escribe su nombre de usuario.
+### 2. Iniciar el servidor
+```bash
+java -cp out com.bidichat.project.ChatServer
+```
+
+El servidor quedará a la espera de nuevas conexiones en el **puerto 8000**.
+
+### 3. Iniciar un cliente
+Abre otra consola y ejecuta:
+
+```bash
+java -cp out com.bidichat.project.ChatClient
+```
+
+Al iniciar, el cliente solicitará los siguientes datos:
+1. **Dirección IP del servidor:** presiona `Enter` para utilizar `localhost`.
+2. **Puerto:** presiona `Enter` para utilizar el puerto `8000`.
+3. **Nombre de usuario:** introduce el nombre con el que deseas participar en el chat.
+
+### 4. Conectar varios usuarios
+Repetir el paso anterior en diferentes consolas para simular varios usuarios conectados.
+Por ejemplo:
+- `user01`
+- `user02`
+- `user03`
+---
+
+## Flujo de uso
+### 1. Conexión de usuarios
+Cada cliente que se conecta debe introducir un nombre de usuario.
 El servidor muestra en su consola la lista de usuarios conectados cada vez que alguien entra o sale.
-El cliente recibe la lista de usuarios ya conectados. Estando en el "lobby" puede escribir:
-	<nombre> -> inicia un chat con ese usuario
-	/lista -> vuelve a mostrar los usuarios conectados
-	chao -> sale del programa
+Por su parte, cada cliente recibe la lista de usuarios disponibles para iniciar una conversación.
 
-Cuando un usuario A elige a B, el chat empieza para los dos a la vez: B no tiene que hacer nada, puede escribir de inmediato. No se puede elegir a un usuario que ya esta chateando con otra persona.
-A partir de ahi el chat es bidireccional, cualquiera de los dos puede escribir y el otro ve el mensaje en su consola.
-Cuando un usuario escribe "chao", el servidor termina su conexion y avisa al otro usuario, que vuelve al lobby y puede elegir a otra persona (o escribir "chao" para salir).
-Si un usuario se desconecta sin escribir "chao" (cierra la consola, se cae la red, Ctrl+C), el otro recibe el mismo aviso y vuelve al lobby.
+### 2. Opciones disponibles en el lobby
+Mientras el usuario se encuentra en el lobby, puede utilizar los siguientes comandos:
+`<nombre>` Inicia un chat con el usuario indicado.
+`/lista` Muestra nuevamente los usuarios conectados.
+`chao` Finaliza la conexión y sale del programa.
+
+### 3. Inicio de una conversación
+Cuando el usuario A selecciona al usuario B:
+- El chat comienza automáticamente para ambos usuarios, ambos pueden comenzar a escribir inmediatamente.
+- Los mensajes enviados por cualquiera de los dos aparecen en la consola del otro usuario.
+No es posible seleccionar a un usuario que ya esté participando en una conversación con otra persona.
+
+### 4. Finalización de una conversación
+Cuando cualquiera de los participantes escribe `chao`:
+1. El servidor finaliza la conexión del usuario que escribió el comando.
+2. El otro participante recibe una notificación.
+3. El usuario restante regresa automáticamente al lobby.
+4. Desde allí puede iniciar una conversación con otro usuario o salir del programa escribiendo `chao`.
+
+### 5. Desconexión inesperada
+Si un usuario se desconecta sin escribir `chao`, por ejemplo, porque cierra la consola, pierde la conexión de red o utiliza `Ctrl + C`:
+- El servidor detecta la desconexión.
+- El otro participante recibe el aviso correspondiente.
+- El usuario restante regresa automáticamente al lobby.
+
+---
+Tecnologías utilizadas: Java, sockets TCP y programación multihilo (*Multithreading*).

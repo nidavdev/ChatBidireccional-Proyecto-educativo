@@ -30,9 +30,6 @@ El cliente recibe la lista de usuarios ya conectados. Estando en el "lobby" pued
 	chao -> sale del programa
 
 Cuando un usuario A elige a B, el chat empieza para los dos a la vez: B no tiene que hacer nada, puede escribir de inmediato. No se puede elegir a un usuario que ya esta chateando con otra persona.
-
 A partir de ahi el chat es bidireccional, cualquiera de los dos puede escribir y el otro ve el mensaje en su consola.
-
 Cuando un usuario escribe "chao", el servidor termina su conexion y avisa al otro usuario, que vuelve al lobby y puede elegir a otra persona (o escribir "chao" para salir).
-
 Si un usuario se desconecta sin escribir "chao" (cierra la consola, se cae la red, Ctrl+C), el otro recibe el mismo aviso y vuelve al lobby.

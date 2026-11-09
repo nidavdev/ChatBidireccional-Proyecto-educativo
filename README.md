@@ -39,12 +39,8 @@ Al iniciar, el cliente solicitará los siguientes datos:
 2. **Puerto:** presiona `Enter` para utilizar el puerto `8000`.
 3. **Nombre de usuario:** introduce el nombre con el que deseas participar en el chat.
 
-### 4. Conectar varios usuarios
-Repetir el paso anterior en diferentes consolas para simular varios usuarios conectados.
-Por ejemplo:
-- `user01`
-- `user02`
-- `user03`
+> [!TIP]
+> Puedes abrir varias terminales para simular diferentes usuarios.
 ---
 
 ## Flujo de uso

@@ -1,0 +1,29 @@
+# ---- IntelliJ IDEA ----
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ---- Archivos compilados ----
+*.class
+*.jar
+*.war
+
+# ---- Eclipse / VS Code ----
+.classpath
+.project
+.settings/
+.vscode/
+bin/
+
+# ---- Maven / Gradle ----
+target/
+build/
+.gradle/
+
+# ---- Logs y archivos del sistema ----
+*.log
+hs_err_pid*
+.DS_Store
+Thumbs.db
